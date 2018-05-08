@@ -45,6 +45,12 @@ public class TestGetGPSDataOp {
   private static final String RESULT_LATITUDE_FOR_PLATE_JPG = "37.0967777777778";
   private static final String RESULT_LONGITUDE_FOR_PLATE_JPG = "-121.643083333333";
 
+  private static final String PARAM_POSITION_FIELD = "positionField";
+  private static final String PARAM_LATITUDE_FIELD = "latitudeField";
+  private static final String PARAM_LONGITUDE_FIELD = "longitudeField";
+
+  private static final String RESULT_FIELD = "dc:description";
+
   @Inject
   protected CoreSession session;
 
@@ -62,7 +68,7 @@ public class TestGetGPSDataOp {
     picture = session.createDocument(picture);
 
     Map<String, Object> params = new HashMap<>();
-    params.put("positionField", "dc:description");
+    params.put(PARAM_POSITION_FIELD, RESULT_FIELD);
 
     ctx.setInput(picture);
     ctx.setCoreSession(session);
@@ -83,7 +89,7 @@ public class TestGetGPSDataOp {
     picture = session.createDocument(picture);
 
     Map<String, Object> params = new HashMap<>();
-    params.put("positionField", "dc:description");
+    params.put(PARAM_LATITUDE_FIELD, RESULT_FIELD);
 
     ctx.setInput(picture);
     ctx.setCoreSession(session);
@@ -104,7 +110,7 @@ public class TestGetGPSDataOp {
     picture = session.createDocument(picture);
 
     Map<String, Object> params = new HashMap<>();
-    params.put("positionField", "dc:description");
+    params.put(PARAM_LONGITUDE_FIELD, RESULT_FIELD);
 
     ctx.setInput(picture);
     ctx.setCoreSession(session);

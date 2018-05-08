@@ -67,10 +67,10 @@ public class GetGPSData {
     if (result.containsKey(GPS_KEY_POSITION) && (positionField != null)) {
       input.setPropertyValue(positionField, (String) result.get(GPS_KEY_POSITION));
     }
-    if (result.containsKey(GPS_KEY_LATITUDE)) {
+    if (result.containsKey(GPS_KEY_LATITUDE)&& (latitudeField != null)) {
       input.setPropertyValue(latitudeField, result.get(GPS_KEY_LATITUDE).toString());
     }
-    if (result.containsKey(GPS_KEY_LONGITUDE)) {
+    if (result.containsKey(GPS_KEY_LONGITUDE)&& (longitudeField != null)) {
       input.setPropertyValue(longitudeField, result.get(GPS_KEY_LONGITUDE).toString());
     }
 
