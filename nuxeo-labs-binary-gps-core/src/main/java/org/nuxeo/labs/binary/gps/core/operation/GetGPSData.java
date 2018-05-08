@@ -144,6 +144,8 @@ public class GetGPSData {
       throw new BinaryMetadataException(
           "There was an error executing " + "the following command: " + er.getCommandLine(), er.getError());
     }
+
+    log.warn(er.getOutput());
     StringBuilder sb = new StringBuilder();
     for (String line : er.getOutput()) {
       sb.append(line);
