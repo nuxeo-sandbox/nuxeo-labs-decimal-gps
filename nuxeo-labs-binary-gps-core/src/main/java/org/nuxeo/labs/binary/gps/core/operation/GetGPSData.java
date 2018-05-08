@@ -1,8 +1,8 @@
 package org.nuxeo.labs.binary.gps.core.operation;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.nuxeo.ecm.automation.OperationException;
 import org.nuxeo.ecm.automation.core.Constants;
 import org.nuxeo.ecm.automation.core.annotations.Context;
 import org.nuxeo.ecm.automation.core.annotations.Operation;
@@ -10,7 +10,6 @@ import org.nuxeo.ecm.automation.core.annotations.OperationMethod;
 import org.nuxeo.ecm.automation.core.annotations.Param;
 import org.nuxeo.ecm.core.api.CoreSession;
 import org.nuxeo.ecm.core.api.DocumentModel;
-import org.nuxeo.ecm.core.api.PathRef;
 import org.nuxeo.ecm.core.schema.types.TypeException;
 
 /**
@@ -36,14 +35,15 @@ public class GetGPSData {
   protected String positionField;
 
   @OperationMethod
-  public DocumentModel run(DocumentModel input) throws TypeException {
+  public DocumentModel run(DocumentModel input) throws TypeException, OperationException {
     // Make sure the document is a Picture
     if (!input.getType().equals("Picture"))
       throw new TypeException("Picture document required");
 
+    // Make sure at least 1 param is passed
+    if (longitudeField == null && latitudeField == null && positionField == null)
+      throw new OperationException("Need at least one GPS-related field");
 
-    // Make sure the document has the gps facet
-    // If not, add the gps facet
     // Extract GPS metadata
     // Map GPS metadata to schema fields
 

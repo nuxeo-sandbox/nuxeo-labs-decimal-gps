@@ -1,14 +1,5 @@
 package org.nuxeo.labs.binary.gps.core;
 
-import static org.junit.Assert.assertEquals;
-
-import java.io.File;
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.inject.Inject;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nuxeo.ecm.automation.AutomationService;
@@ -27,64 +18,77 @@ import org.nuxeo.runtime.test.runner.Deploy;
 import org.nuxeo.runtime.test.runner.Features;
 import org.nuxeo.runtime.test.runner.FeaturesRunner;
 
+import javax.inject.Inject;
+import java.io.File;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
+
 @RunWith(FeaturesRunner.class)
 @Features(AutomationFeature.class)
 @RepositoryConfig(init = DefaultRepositoryInit.class, cleanup = Granularity.METHOD)
-@Deploy("org.nuxeo.labs.binary.gps.core.nuxeo-labs-binary-gps-core")
+@Deploy({
+    "nuxeo-labs-binary-gps-core",
+})
+@Deploy({
+    "org.nuxeo.ecm.platform.picture.core",
+    "org.nuxeo.ecm.platform.tag"
+})
 public class TestGetGPSData {
 
 
   public static final String GPS_SCHEMA_NAME = "gps";
-  public static final String GPS_LONGITUDE_FIELD = GPS_SCHEMA_NAME+":decimalLongitude";
-  public static final String GPS_LATITUDE_FIELD = GPS_SCHEMA_NAME+":decimalLatitude";
-  public static final String GPS_POSITION_FIELD = GPS_SCHEMA_NAME+":decimalPosition";
-
+  public static final String GPS_LONGITUDE_FIELD = GPS_SCHEMA_NAME + ":decimalLongitude";
+  public static final String GPS_LATITUDE_FIELD = GPS_SCHEMA_NAME + ":decimalLatitude";
+  public static final String GPS_POSITION_FIELD = GPS_SCHEMA_NAME + ":decimalPosition";
 
 
   @Inject
-    protected CoreSession session;
+  protected CoreSession session;
 
-    @Inject
-    protected AutomationService automationService;
+  @Inject
+  protected AutomationService automationService;
 
-    // I wrote this just for a sanity check
-    private void shouldThrowTypeException() throws OperationException {
-      OperationContext ctx = new OperationContext(session);
-      DocumentModel file = session.createDocumentModel("/", "File", "File");
-      ctx.setInput(file);
-      ctx.setCoreSession(session);
+  // I wrote this just for a sanity check
+  private void shouldThrowTypeException() throws OperationException {
+    OperationContext ctx = new OperationContext(session);
+    DocumentModel file = session.createDocumentModel("/", "file", "File");
+    ctx.setInput(file);
+    ctx.setCoreSession(session);
 
-      DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID);
-    }
+    DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID);
+  }
 
-    @Test
-    public void shouldCallGetGPSData() throws OperationException {
-        OperationContext ctx = new OperationContext(session);
+  @Test
+  public void shouldCallGetGPSData() throws OperationException {
+    OperationContext ctx = new OperationContext(session);
 
-      DocumentModel picture = session.createDocumentModel("/", "Picture", "Picture");
-      File file = new File(getClass().getResource("/files/plate.jpg").getPath());
-      Blob blob = new FileBlob(file);
-      picture.setPropertyValue("file:content", (Serializable) blob);
-      picture = session.createDocument(picture);
+    DocumentModel picture = session.createDocumentModel(session.getRootDocument().getPathAsString(), "picture", "Picture");
+    File file = new File(getClass().getResource("/files/plate.jpg").getPath());
+    Blob blob = new FileBlob(file);
+    picture.setPropertyValue("file:content", (Serializable) blob);
+    picture = session.createDocument(picture);
 
-      ctx.setInput(picture);
-      ctx.setCoreSession(session);
+    ctx.setInput(picture);
+    ctx.setCoreSession(session);
 
-        DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID);
-        assertEquals("/", doc.getPathAsString());
-    }
+    DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID);
+    assertEquals("/", doc.getPathAsString());
+  }
 
-    @Test
-    public void shouldCallGetGPSDataWithParameters() throws OperationException {
-        final String path = "/default-domain";
-        OperationContext ctx = new OperationContext(session);
-        Map<String, Object> params = new HashMap<>();
-        params.put("path", path);
-        DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
-        assertEquals(path, doc.getPathAsString());
-    }
+  @Test
+  public void shouldCallGetGPSDataWithParameters() throws OperationException {
+    final String path = "/default-domain";
+    OperationContext ctx = new OperationContext(session);
+    Map<String, Object> params = new HashMap<>();
+    params.put("path", path);
+    DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
+    assertEquals(path, doc.getPathAsString());
+  }
 
-    private void callGetGPSData() throws OperationException{
+  private void callGetGPSData() throws OperationException {
 
-    }
+  }
 }
