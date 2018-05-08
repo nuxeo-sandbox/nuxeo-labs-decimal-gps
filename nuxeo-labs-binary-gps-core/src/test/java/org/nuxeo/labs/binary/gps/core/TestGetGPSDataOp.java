@@ -65,7 +65,6 @@ public class TestGetGPSDataOp {
     Map<String, Object> params = new HashMap<>();
     params.put("positionField", "dc:description");
 
-
     ctx.setInput(picture);
     ctx.setCoreSession(session);
 
