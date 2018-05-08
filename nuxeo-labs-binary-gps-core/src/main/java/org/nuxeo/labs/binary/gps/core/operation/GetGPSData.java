@@ -27,6 +27,11 @@ public class GetGPSData {
 
   private static final Log log = LogFactory.getLog(GetGPSData.class);
 
+  // These are the tag keys returned by exiftool
+  private static final String GPS_KEY_POSITION = "GPSPosition";
+  private static final String GPS_KEY_LATITUDE = "GPSLatitude";
+  private static final String GPS_KEY_LONGITUDE = "GPSLongitude";
+
   @Context
   protected CoreSession session;
 
@@ -58,10 +63,16 @@ public class GetGPSData {
     GPSExifToolProcessor myExifToolProcessor = new GPSExifToolProcessor();
     Map<String, Object> result = myExifToolProcessor.readGPSMetadata(blob);
 
-    log.warn(result);
-
     // Map GPS metadata to schema fields
-
+    if (result.containsKey(GPS_KEY_POSITION) && (positionField != null)) {
+      input.setPropertyValue(positionField, (String) result.get(GPS_KEY_POSITION));
+    }
+    if (result.containsKey(GPS_KEY_LATITUDE)) {
+      input.setPropertyValue(latitudeField, (String) result.get(GPS_KEY_LATITUDE));
+    }
+    if (result.containsKey(GPS_KEY_LONGITUDE)) {
+      input.setPropertyValue(longitudeField, (String) result.get(GPS_KEY_LONGITUDE));
+    }
     return input;
   }
 

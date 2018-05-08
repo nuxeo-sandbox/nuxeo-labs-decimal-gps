@@ -42,6 +42,8 @@ import static org.junit.Assert.assertEquals;
 public class TestGetGPSDataOp {
 
   private static final String GPS_POSITION_FOR_PLATE_JPG = "37.0967777777778 -121.643083333333";
+  private static final String GPS_LATITUDE_FOR_PLATE_JPG = "37.0967777777778";
+  private static final String GPS_LONGITUDE_FOR_PLATE_JPG = "-121.643083333333";
 
   @Inject
   protected CoreSession session;
@@ -50,7 +52,7 @@ public class TestGetGPSDataOp {
   protected AutomationService automationService;
 
   @Test
-  public void shouldCallGetGPSData() throws OperationException {
+  public void shouldCallGetGPSData_Position() throws OperationException {
     OperationContext ctx = new OperationContext(session);
 
     DocumentModel picture = session.createDocumentModel(session.getRootDocument().getPathAsString(), "picture", "Picture");
@@ -68,6 +70,48 @@ public class TestGetGPSDataOp {
     DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
 
     assertEquals(GPS_POSITION_FOR_PLATE_JPG, doc.getPropertyValue("dc:description"));
+  }
+
+  @Test
+  public void shouldCallGetGPSData_Latitude() throws OperationException {
+    OperationContext ctx = new OperationContext(session);
+
+    DocumentModel picture = session.createDocumentModel(session.getRootDocument().getPathAsString(), "picture", "Picture");
+    File file = new File(getClass().getResource("/files/plate.jpg").getPath());
+    Blob blob = new FileBlob(file);
+    picture.setPropertyValue("file:content", (Serializable) blob);
+    picture = session.createDocument(picture);
+
+    Map<String, Object> params = new HashMap<>();
+    params.put("positionField", "dc:description");
+
+    ctx.setInput(picture);
+    ctx.setCoreSession(session);
+
+    DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
+
+    assertEquals(GPS_LATITUDE_FOR_PLATE_JPG, doc.getPropertyValue("dc:description"));
+  }
+
+  @Test
+  public void shouldCallGetGPSData_Longitude() throws OperationException {
+    OperationContext ctx = new OperationContext(session);
+
+    DocumentModel picture = session.createDocumentModel(session.getRootDocument().getPathAsString(), "picture", "Picture");
+    File file = new File(getClass().getResource("/files/plate.jpg").getPath());
+    Blob blob = new FileBlob(file);
+    picture.setPropertyValue("file:content", (Serializable) blob);
+    picture = session.createDocument(picture);
+
+    Map<String, Object> params = new HashMap<>();
+    params.put("positionField", "dc:description");
+
+    ctx.setInput(picture);
+    ctx.setCoreSession(session);
+
+    DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
+
+    assertEquals(GPS_LONGITUDE_FOR_PLATE_JPG, doc.getPropertyValue("dc:description"));
   }
 
 }
