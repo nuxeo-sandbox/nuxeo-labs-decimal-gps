@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<component name="org.nuxeo.labs.binary.gps.core.test.listener">
+
+  <!-- Disable the listeners so that we don't need the dependencies to create picture renditions, and maybe make things faster? -->
+  <extension target="org.nuxeo.ecm.core.event.EventServiceComponent" point="listener">
+    <listener enabled="false" class="org.nuxeo.ecm.platform.picture.listener.PictureChangedListener"
+              name="pictureChangedListener"></listener>
+    <listener enabled="false" class="org.nuxeo.ecm.platform.picture.listener.PictureViewsGenerationListener"
+              name="pictureViewsGenerationListener"></listener>
+  </extension>
+
+</component>

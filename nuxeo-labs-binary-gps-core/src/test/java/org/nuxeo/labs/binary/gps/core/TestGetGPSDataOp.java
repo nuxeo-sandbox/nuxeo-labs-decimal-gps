@@ -36,8 +36,11 @@ import static org.junit.Assert.assertEquals;
     "org.nuxeo.ecm.platform.picture.core",
     "org.nuxeo.ecm.platform.tag"
 })
+@Deploy({
+    "nuxeo-labs-binary-gps-core:OSGI-INF/test-disabled-listener-contrib.xml",
+})
 public class TestGetGPSDataOp {
-  
+
   public static final String GPS_SCHEMA_NAME = "gps";
   public static final String GPS_LONGITUDE_FIELD = GPS_SCHEMA_NAME + ":decimalLongitude";
   public static final String GPS_LATITUDE_FIELD = GPS_SCHEMA_NAME + ":decimalLatitude";
@@ -67,7 +70,7 @@ public class TestGetGPSDataOp {
     ctx.setCoreSession(session);
 
     DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
-    assertEquals("/", doc.getPathAsString());
+    assertEquals("/picture", doc.getPathAsString());
   }
 
 }
