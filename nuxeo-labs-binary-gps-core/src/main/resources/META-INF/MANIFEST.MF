@@ -6,4 +6,5 @@ Bundle-Version: 1.0.0
 Bundle-Name: nuxeo-labs-binary-gps-core
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: nuxeo-labs-binary-gps-core;singleton=true
-Nuxeo-Component: OSGI-INF/getgpsdata-operation-contrib.xml
+Nuxeo-Component: OSGI-INF/getgpsdata-operation-contrib.xml,
+  OSGI-INF/getgpsdata-command-contrib.xml

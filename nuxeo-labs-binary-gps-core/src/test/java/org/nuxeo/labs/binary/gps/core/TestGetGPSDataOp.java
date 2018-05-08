@@ -36,7 +36,7 @@ import static org.junit.Assert.assertEquals;
     "org.nuxeo.ecm.platform.picture.core",
     "org.nuxeo.ecm.platform.tag"
 })
-public class TestGetGPSData {
+public class TestGetGPSDataOp {
 
 
   public static final String GPS_SCHEMA_NAME = "gps";
@@ -71,24 +71,15 @@ public class TestGetGPSData {
     picture.setPropertyValue("file:content", (Serializable) blob);
     picture = session.createDocument(picture);
 
+    Map<String, Object> params = new HashMap<>();
+    params.put("positionField", "dc:description");
+
+
     ctx.setInput(picture);
     ctx.setCoreSession(session);
 
-    DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID);
+    DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
     assertEquals("/", doc.getPathAsString());
   }
 
-  @Test
-  public void shouldCallGetGPSDataWithParameters() throws OperationException {
-    final String path = "/default-domain";
-    OperationContext ctx = new OperationContext(session);
-    Map<String, Object> params = new HashMap<>();
-    params.put("path", path);
-    DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
-    assertEquals(path, doc.getPathAsString());
-  }
-
-  private void callGetGPSData() throws OperationException {
-
-  }
 }
