@@ -9,7 +9,7 @@
 
   <artifactId>nuxeo-labs-binary-gps-package</artifactId>
   <packaging>zip</packaging>
-  <name>Nuxeo labs binary gps package - Nuxeo labs decimal gps metadata</name>
+  <name>Nuxeo Labs Binary GPS Package</name>
 
   <dependencies>
     <!-- Base distribution(s) for the MP -->

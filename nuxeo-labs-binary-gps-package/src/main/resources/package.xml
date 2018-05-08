@@ -1,6 +1,6 @@
 <!-- See documentation at http://doc.nuxeo.com/x/HgIz -->
 <package type="addon" name="nuxeo-labs-decimal-gps-metadata" version="@VERSION@">
-  <title>Nuxeo labs decimal gps metadata</title>
+  <title>Nuxeo Labs Decimal GPS Metadata</title>
   <description>
     <p>Put here an HTML description of your Nuxeo Package.</p>
   </description>
