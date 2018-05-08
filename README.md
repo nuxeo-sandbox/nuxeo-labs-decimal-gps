@@ -14,7 +14,9 @@ Building requires the following software:
 * maven
 * exiftool
 
-# How to build
+# Build
+
+<a href='https://qa.nuxeo.org/jenkins/job/Sandbox/job/sandbox_nuxeo-labs-binary-gps-master/'><img src='https://qa.nuxeo.org/jenkins/buildStatus/icon?job=Sandbox/sandbox_nuxeo-labs-binary-gps-master'></a>
 
     git clone https://github.com/nuxeo-sandbox/nuxeo-labs-binary-gps
     cd nuxeo-labs-binary-gps
