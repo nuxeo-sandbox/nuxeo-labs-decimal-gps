@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<component name="org.nuxeo.labs.binary.gps.core.operation.getgpsdata" version="1.0">
+<component name="org.nuxeo.labs.binary.gps.core.commandline" version="1.0">
 
   <require>org.nuxeo.ecm.platform.commandline.executor.service.defaultContrib</require>
 
