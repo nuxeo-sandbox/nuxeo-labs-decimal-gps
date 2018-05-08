@@ -2,7 +2,7 @@
 <package type="addon" name="nuxeo-labs-decimal-gps-metadata" version="@VERSION@">
   <title>Nuxeo Labs Decimal GPS Metadata</title>
   <description>
-    <p>Put here an HTML description of your Nuxeo Package.</p>
+    <p>This plug-in uses <a href="https://www.sno.phy.queensu.ca/~phil/exiftool/">exiftool</a> with the option <i>-n</i> to extract GPS metadata in decimal format. This makes it easier to deal with positive and negative direction, and easier to integrate with services like Google Maps.</p>
   </description>
   <!-- <home-page>http://doc.nuxeo.com/</home-page> -->
   <vendor>Nuxeo</vendor>
