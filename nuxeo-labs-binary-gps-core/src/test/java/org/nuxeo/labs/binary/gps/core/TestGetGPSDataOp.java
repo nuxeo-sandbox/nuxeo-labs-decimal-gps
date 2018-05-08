@@ -37,29 +37,17 @@ import static org.junit.Assert.assertEquals;
     "org.nuxeo.ecm.platform.tag"
 })
 public class TestGetGPSDataOp {
-
-
+  
   public static final String GPS_SCHEMA_NAME = "gps";
   public static final String GPS_LONGITUDE_FIELD = GPS_SCHEMA_NAME + ":decimalLongitude";
   public static final String GPS_LATITUDE_FIELD = GPS_SCHEMA_NAME + ":decimalLatitude";
   public static final String GPS_POSITION_FIELD = GPS_SCHEMA_NAME + ":decimalPosition";
-
 
   @Inject
   protected CoreSession session;
 
   @Inject
   protected AutomationService automationService;
-
-  // I wrote this just for a sanity check
-  private void shouldThrowTypeException() throws OperationException {
-    OperationContext ctx = new OperationContext(session);
-    DocumentModel file = session.createDocumentModel("/", "file", "File");
-    ctx.setInput(file);
-    ctx.setCoreSession(session);
-
-    DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID);
-  }
 
   @Test
   public void shouldCallGetGPSData() throws OperationException {
