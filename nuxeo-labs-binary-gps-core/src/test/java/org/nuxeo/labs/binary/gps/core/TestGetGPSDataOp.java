@@ -41,9 +41,9 @@ import static org.junit.Assert.assertEquals;
 })
 public class TestGetGPSDataOp {
 
-  private static final String GPS_POSITION_FOR_PLATE_JPG = "37.0967777777778 -121.643083333333";
-  private static final String GPS_LATITUDE_FOR_PLATE_JPG = "37.0967777777778";
-  private static final String GPS_LONGITUDE_FOR_PLATE_JPG = "-121.643083333333";
+  private static final String RESULT_POSITION_FOR_PLATE_JPG = "37.0967777777778 -121.643083333333";
+  private static final String RESULT_LATITUDE_FOR_PLATE_JPG = "37.0967777777778";
+  private static final String RESULT_LONGITUDE_FOR_PLATE_JPG = "-121.643083333333";
 
   @Inject
   protected CoreSession session;
@@ -69,7 +69,7 @@ public class TestGetGPSDataOp {
 
     DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
 
-    assertEquals(GPS_POSITION_FOR_PLATE_JPG, doc.getPropertyValue("dc:description"));
+    assertEquals(RESULT_POSITION_FOR_PLATE_JPG, doc.getPropertyValue("dc:description"));
   }
 
   @Test
@@ -90,7 +90,7 @@ public class TestGetGPSDataOp {
 
     DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
 
-    assertEquals(GPS_LATITUDE_FOR_PLATE_JPG, doc.getPropertyValue("dc:description"));
+    assertEquals(RESULT_LATITUDE_FOR_PLATE_JPG, doc.getPropertyValue("dc:description"));
   }
 
   @Test
@@ -111,7 +111,7 @@ public class TestGetGPSDataOp {
 
     DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
 
-    assertEquals(GPS_LONGITUDE_FOR_PLATE_JPG, doc.getPropertyValue("dc:description"));
+    assertEquals(RESULT_LONGITUDE_FOR_PLATE_JPG, doc.getPropertyValue("dc:description"));
   }
 
 }
