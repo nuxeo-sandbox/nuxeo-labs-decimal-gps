@@ -41,10 +41,7 @@ import static org.junit.Assert.assertEquals;
 })
 public class TestGetGPSDataOp {
 
-  public static final String GPS_SCHEMA_NAME = "gps";
-  public static final String GPS_LONGITUDE_FIELD = GPS_SCHEMA_NAME + ":decimalLongitude";
-  public static final String GPS_LATITUDE_FIELD = GPS_SCHEMA_NAME + ":decimalLatitude";
-  public static final String GPS_POSITION_FIELD = GPS_SCHEMA_NAME + ":decimalPosition";
+  private static final String GPS_POSITION_FOR_PLATE_JPG = "37.0967777777778 -121.643083333333";
 
   @Inject
   protected CoreSession session;
@@ -69,7 +66,8 @@ public class TestGetGPSDataOp {
     ctx.setCoreSession(session);
 
     DocumentModel doc = (DocumentModel) automationService.run(ctx, GetGPSData.ID, params);
-    assertEquals("/picture", doc.getPathAsString());
+
+    assertEquals(GPS_POSITION_FOR_PLATE_JPG, doc.getPropertyValue("dc:description"));
   }
 
 }
