@@ -4,6 +4,8 @@
 
 This plug-in uses [exiftool](https://www.sno.phy.queensu.ca/~phil/exiftool/) with the option `-n` to extract GPS metadata in decimal format. This makes it easier to deal with positive and negative direction, and easier to integrate with services like Google Maps.
 
+**WARNING**: The plugin fodler is named "nuxeo-labs-binary-gps", but the Marketplace Package is `nuxeo-labs-decimal-gps-metadata`
+
 # Usage
 
 The plugin includes a custom operation, `Document.GetGPSData`, that accepts params that correspond to the EXIF tags `GPSLongitute`, `GPSLatitude`, and `GPSPosition` (which is a [composite tag](https://sno.phy.queensu.ca/~phil/exiftool/TagNames/Composite.html)).
@@ -34,6 +36,11 @@ Building requires the following software:
     git clone https://github.com/nuxeo-sandbox/nuxeo-labs-binary-gps
     cd nuxeo-labs-binary-gps
     mvn clean install
+
+The Marketplace package is at `nuxeo-labs-binary-gps/nuxeo-labs-binary-gps-package/target/nuxeo-labs-binary-gps-package-{VERSION}.zip`
+
+**WARNING**: The plugin fodler is named "nuxeo-labs-binary-gps", but the Marketplace Package is `nuxeo-labs-decimal-gps-metadata`
+
 
 # Support
 
