@@ -136,7 +136,7 @@
     <!-- cleanups -->
     <delete dir="${outdir}/marketplace" failonerror="false" />
     <delete dir="${outdir}/nxr" failonerror="false" />
-    <delete file="${outdir}/nuxeo-nxr-server-${maven.project.version}.zip" failonerror="false" />
+    <delete file="${outdir}/nuxeo-nxr-server-${nuxeo.platform.version}.zip" failonerror="false" />
     <delete file="${outdir}/nxr-${maven.project.version}.zip" failonerror="false" />
   </target>
 
