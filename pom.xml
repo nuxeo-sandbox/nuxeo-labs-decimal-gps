@@ -22,6 +22,7 @@
 
   <modules>
     <module>nuxeo-labs-binary-gps-core</module>
+    <module>nuxeo-labs-binary-gps-package</module>
   </modules>
 
   <scm />
@@ -37,6 +38,11 @@
       <dependency>
         <groupId>org.nuxeo.labs.binary.gps</groupId>
         <artifactId>nuxeo-labs-binary-gps-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.nuxeo.labs.binary.gps</groupId>
+        <artifactId>nuxeo-labs-binary-gps-package</artifactId>
         <version>${project.version}</version>
       </dependency>
     </dependencies>
