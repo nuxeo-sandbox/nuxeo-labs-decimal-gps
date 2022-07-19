@@ -1,7 +1,7 @@
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
 Manifest-Version: 1.0
-Bundle-Vendor: org.nuxeo.labs.binary.gps.core
+Bundle-Vendor: org.nuxeo.labs.binary.gps
 Bundle-Version: 1.0.0
 Bundle-Name: nuxeo-labs-binary-gps-core
 Bundle-ManifestVersion: 2

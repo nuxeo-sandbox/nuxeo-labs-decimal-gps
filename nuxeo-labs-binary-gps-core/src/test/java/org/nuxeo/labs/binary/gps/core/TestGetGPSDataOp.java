@@ -32,10 +32,12 @@ import static org.junit.Assert.assertEquals;
 @Deploy({
     "nuxeo-labs-binary-gps-core",
 })
+// You have to deploy both of these to get the Picture document type; I have no clue why org.nuxeo.ecm.platform.tag is required though.
 @Deploy({
     "org.nuxeo.ecm.platform.picture.core",
     "org.nuxeo.ecm.platform.tag"
 })
+// Disabling the Picture conversion listener makes the test about 8x faster.
 @Deploy({
     "nuxeo-labs-binary-gps-core:OSGI-INF/test-disabled-listener-contrib.xml",
 })
