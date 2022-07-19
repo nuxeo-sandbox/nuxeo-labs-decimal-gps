@@ -17,7 +17,7 @@
   <properties>
     <!-- Skip Nuxeo enforcer rules by default -->
     <nuxeo.skip.enforcer>true</nuxeo.skip.enforcer>
-    <nuxeo.target.version>2021.18</nuxeo.target.version>
+    <nuxeo.target.version>2021.*</nuxeo.target.version>
   </properties>
 
   <modules>
