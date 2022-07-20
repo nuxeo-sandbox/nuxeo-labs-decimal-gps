@@ -1,0 +1,10 @@
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Manifest-Version: 1.0
+Bundle-Vendor: org.nuxeo.labs.decimal.gps
+Bundle-Version: 1.0.0
+Bundle-Name: nuxeo-labs-decimal-gps-core
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: nuxeo-labs-decimal-gps-core;singleton=true
+Nuxeo-Component: OSGI-INF/getgpsdata-operation-contrib.xml,
+  OSGI-INF/getgpsdata-command-contrib.xml

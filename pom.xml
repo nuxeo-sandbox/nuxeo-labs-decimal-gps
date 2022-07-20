@@ -7,10 +7,10 @@
     <version>2021.18</version>
   </parent>
 
-  <groupId>org.nuxeo.labs.binary.gps</groupId>
-  <artifactId>nuxeo-labs-binary-gps-parent</artifactId>
+  <groupId>org.nuxeo.labs.decimal.gps</groupId>
+  <artifactId>nuxeo-labs-decimal-gps-parent</artifactId>
   <version>2021.0.0-SNAPSHOT</version>
-  <name>Nuxeo labs binary gps parent</name>
+  <name>Nuxeo labs decimal gps parent</name>
   <description>Extract machine usable GPS data from Picture</description>
   <packaging>pom</packaging>
 
@@ -21,8 +21,8 @@
   </properties>
 
   <modules>
-    <module>nuxeo-labs-binary-gps-core</module>
-    <module>nuxeo-labs-binary-gps-package</module>
+    <module>nuxeo-labs-decimal-gps-core</module>
+    <module>nuxeo-labs-decimal-gps-package</module>
   </modules>
 
   <scm />
@@ -36,13 +36,13 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.nuxeo.labs.binary.gps</groupId>
-        <artifactId>nuxeo-labs-binary-gps-core</artifactId>
+        <groupId>org.nuxeo.labs.decimal.gps</groupId>
+        <artifactId>nuxeo-labs-decimal-gps-core</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.nuxeo.labs.binary.gps</groupId>
-        <artifactId>nuxeo-labs-binary-gps-package</artifactId>
+        <groupId>org.nuxeo.labs.decimal.gps</groupId>
+        <artifactId>nuxeo-labs-decimal-gps-package</artifactId>
         <version>${project.version}</version>
       </dependency>
     </dependencies>

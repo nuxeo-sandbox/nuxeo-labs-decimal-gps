@@ -1,4 +1,4 @@
-# About nuxeo-labs-binary-gps
+# About nuxeo-labs-decimal-gps
 
 This plug-in uses [exiftool](https://www.sno.phy.queensu.ca/~phil/exiftool/) with the option `-n` to extract GPS metadata in decimal format. This makes it easier to deal with positive and negative direction, and easier to integrate with services like Google Maps.
 
@@ -29,8 +29,8 @@ Building requires the following software:
 
 # Build
 
-    git clone https://github.com/nuxeo-sandbox/nuxeo-labs-binary-gps
-    cd nuxeo-labs-binary-gps
+    git clone https://github.com/nuxeo-sandbox/nuxeo-labs-decimal-gps
+    cd nuxeo-labs-decimal-gps
     mvn clean install
 
 # Support
