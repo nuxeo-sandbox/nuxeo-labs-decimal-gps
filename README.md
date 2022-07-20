@@ -6,7 +6,7 @@ This plug-in uses [exiftool](https://www.sno.phy.queensu.ca/~phil/exiftool/) wit
 
 The plugin includes a custom operation, `Document.GetGPSData`, that accepts params that correspond to the EXIF tags `GPSLongitute`, `GPSLatitude`, and `GPSPosition` (which is a [composite tag](https://sno.phy.queensu.ca/~phil/exiftool/TagNames/Composite.html)).
 
-The values of the parameters are XPATH fields of the input document that will get these values. For example, say input document has the `gps` (custom) schema with 3 fields, `gps:DecimalLatitude`, `gps:DecimalLongitude` and `gps:DecimalPosition`. Calling theoperaiton:
+The values of the parameters are XPATH fields of the input document that will get these values. For example, say input document has the `gps` (custom) schema with 3 fields, `gps:DecimalLatitude`, `gps:DecimalLongitude` and `gps:DecimalPosition`. Calling the operaiton:
 
 ```
 . . .
