@@ -9,7 +9,7 @@
 
   <groupId>org.nuxeo.labs.decimal.gps</groupId>
   <artifactId>nuxeo-labs-decimal-gps-parent</artifactId>
-  <version>2021.0.1</version>
+  <version>2021.0.2-SNAPSHOT</version>
   <name>Nuxeo labs decimal gps parent</name>
   <description>Extract machine usable GPS data from Picture</description>
   <packaging>pom</packaging>
