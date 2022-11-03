@@ -7,7 +7,7 @@
     <command name="exiftool-get-gps-data" enabled="true">
       <commandLine>exiftool</commandLine>
       <!-- The option -n causes exiftool to report GPS values in decimal -->
-      <parameterString>-m -json -n -GPSPosition -GPSLatitude -GPSLongitude #{inFilePath}</parameterString>
+      <parameterString>-m -q -q -json -n -GPSPosition -GPSLatitude -GPSLongitude #{inFilePath}</parameterString>
       <installationDirective>You need to install exiftool</installationDirective>
     </command>
   </extension>
