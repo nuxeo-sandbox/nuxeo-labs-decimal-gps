@@ -44,20 +44,25 @@ public class GetGPSData {
   @Param(name = "positionField", required = false)
   protected String positionField;
 
+  @Param(name = "xpath", required = false, values = { "file:content" })
+  protected String xpath = "file:content";
+
   @OperationMethod
   public DocumentModel run(DocumentModel input) throws TypeException, OperationException {
     // Make sure the document is a Picture
-    if (!input.getType().equals("Picture"))
+    if (!input.hasFacet("Picture")) {
       throw new TypeException("Picture document required");
+    }
 
     // Make sure at least 1 param is passed
-    if (longitudeField == null && latitudeField == null && positionField == null)
+    if (longitudeField == null && latitudeField == null && positionField == null) {
       throw new OperationException("Need at least one parameter");
-
-    Property fileProp = input.getProperty("file:content");
+    }
+    Property fileProp = input.getProperty(xpath);
     Blob blob = (Blob) fileProp.getValue();
-    if (blob == null)
-      throw new OperationException("Need a picture blob");
+    if (blob == null) {
+      throw new OperationException("Need a picture blob at xpath " + xpath);
+    }
 
     // Extract GPS metadata
     GPSExifToolProcessor myExifToolProcessor = new GPSExifToolProcessor();
